@@ -1,0 +1,154 @@
+/*****************************************************************************
+TITLE: Claims																														
+AUTHOR: CHIRANJIBI PRADHAN
+ROLLNO: 2101CS21
+Declaration of Authorship
+This txt file Claims.txt, is part of the miniproject of CS209/CS210 at the 
+department of Computer Science and Engg, IIT Patna . 
+*****************************************************************************/
+
+Files:
+==========
+*All the files i submitted, asm.cpp and emu.cpp and claims.txt, have my name and student id at the start, along with a declaration of authorship.
+
+The evidence for Assembler including the output files from the 3  test examples and 2 my own algorithm  has also been uploaded. They are test1(3 output files), test2(3 output files), test3
+(3 output file) . myalgo1(5 files), myalgo2.asm(5files) All the test files have been tested and work properly. As for the evidence for the emulator is uploaded
+with algorithm myalgo1.asm, myalgo2.asm
+
+*Both of my cpp programs did not show any errors and warnings when i compiled it with
+gcc -std=c89 -pedantic and gcc -std=c89 -pedantic -W -Wall -Wpointer-arith -Wwrite-strings -Wstrict-prototypes standard  or equilvalent or g++ (for C++ 20)
+
+*Two programs are compilable with g++ asm.cpp -o asm and g++ emu.cpp -o emu.
+
+
+=============================
+Program format and structure:
+=============================
+1. The assembler:
+
+    * with two data structures to store respectively labels(using maps for label) and mnemonic table with expected operands. (using maps for mnemonic)
+    * uses a single routine for both passes.
+    * detects label erros.
+    * consistent and sensible formatting with sensible program structure. 
+    * sensible variable, function & type names with explanatory comments.
+		* advanced listing file.
+		* assembles test programs.
+	  
+
+2. The emulator  :
+
+    * with three data structures to store respectively memory, mnemonic table with expected operands
+     and a linked list structure word.
+    * loads object file, 
+    * by giving the instructions like "-memdump , the program can produce memory dump bafter execution.
+    * by giving the instruction like "-trace", the program prints the result of program executed.
+    * Detecs errant program
+    
+
+
+=============================
+Testing:
+=============================
+
+1. The assembler:
+
+I have tested  three  examples shown as below. The errors only occurred in the file test2.asm and 
+the program immediately stopped on the second pass. 
+
+The 2 algorithms detected no issues and binary file, listing file and log files are generated 
+
+The others were tested without any errors detected and produced three output files, listing file, 
+error log file and machine readable object file, for each example. 
+
+
+ 
+
+1)
+#Input: asm.exe
+ test1.asm
+#Output: 
+a. test1.l 
+b. test1.log (without any error messages)
+c. test1.o
+
+2)
+#Input:asm.exe 
+test2.asm
+
+#Output: 
+a. test2.l 
+b. test2.log (with error messages shown as below  in log file)
+c. test2.o
+
+error messages:
+Duplicate label found at 4
+Invalid label name declared at line 10
+No such label nonesuch at line number4
+Invalid number format   08ge at line number 5
+Operands missing at line 7
+Extra operands found at line 8
+Extra operands found at line 9
+The mnemonic fibble found at line number 10 is not in SIMPLE ISA
+The mnemonic 0def found at line number 11 is not in SIMPLE ISA
+
+3)
+#Input:asm.exe
+ test3.asm
+#Output: 
+a. test3.l 
+b. test3.log (without any error messages)
+c. test3.o
+
+
+4)
+#Input:asm.exe
+ myalgo1.asm
+#Output: 
+a. myalgo1.l 
+b. myalgo1.log (without any error messages)
+c. myalgo1.o
+
+5)
+#Input:asm.exe
+ myalgo2.asm
+#Output: 
+a. myalgo2.l 
+b. myalgo2.log (without any error messages)
+c. myalgo2.o
+
+
+
+
+
+2. The emulator:
+
+For test3.asm trace file and memdump is generated .
+
+For myalgo1.asm trace file and mem dump is generated .
+For myalgo2.asm trace file and memdump is generated .
+
+
+
+
+1)
+#Input:./emu -trace test3.o
+      ./emu -memdump test3.o
+
+#Output: test3.trace
+         test3.mem
+
+
+2)
+#Input: ./emu   -trace myalgo1.o
+        ./emu -memdump myalgo1.o
+#Output: myalgo1.trace
+         myalgo1.mem
+
+
+3)
+#Input: ./emu -trace myalgo2.o
+        ./emu -memdump myalgo2.o
+#Output: myalgo1.trace
+         myalgo2.mem
+
+
